@@ -1,3 +1,5 @@
+import task from "./tasks";
+
 function newTaskButton() 
 {
     const addTask = document.getElementById("add-task");
@@ -24,17 +26,28 @@ function closeTaskButton()
 
 }
 
-function saveTaskButton() 
+function saveTaskButton(project) 
 {
     const saveTask = document.getElementById("save-button");
     const taskDialog = document.getElementById("task-dialog");
 
-    closeTask.addEventListener("click", (e) =>
+    saveTask.addEventListener("click", (e) =>
     {
         e.preventDefault();
+
+        const title = document.querySelector('.title').value;
+        const description = document.querySelector('.description').value;
+        const dueDate = document.querySelector('.due-date').value;
+        const priority = document.querySelector('.priority').value;
+
+         let task1 = new task(title, description, dueDate, priority);
+
+         project.addTask(task1);
+        
+
         taskDialog.close();
     })
 
 }
 
-export {newTaskButton, closeTaskButton};
+export {newTaskButton, closeTaskButton, saveTaskButton};

@@ -2,13 +2,18 @@ import "./styles.css";
 import project from "./projects";
 import task from "./tasks";
 import {fillProject} from "./dom";
-import { closeTaskButton, newTaskButton } from "./buttons";
+import { closeTaskButton, newTaskButton, saveTaskButton } from "./buttons";
 
 newTaskButton();
 closeTaskButton();
 
+
+
 let project1 = new project();
 let project2 = new project();
+
+saveTaskButton(project1);
+
 let task1 = new task("dog walk","walk max","12/12/2045","high");
 let task2 = new task("ptoateo","patata","12/12/2045","high");
 
