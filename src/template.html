@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <dialog id="task-dialog">
+        <form>
+            <label>
+                Title:
+                <input  class="title" type="text" required>
+            </label>
+            <label>
+                Description:
+                <input  class="description" type="text" required>
+            </label>
+            <label>
+                Due Date:
+                <input  class="due-date" type="date" required>
+            </label>
+            <label>
+                Priority:
+                <select class="priority">
+                    <option value="default">Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </label>
+            <div><button id="cancel-button">Cancel</button></div>
+            <div><button id="save-button" value="default">Save</button></div>
+        </form>
+    </dialog>
+
+
+    <div class = "headbar">
+    <button id="add-task"></button>
+    
+    </div>
+
+    <div class="sidebar">
+        <nav class="projects">
+            <ul>
+                <li><button id="1">pj1</button></li>
+                <li><button id="2">pj2</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class = "card-container"></div>
+    </div>
+</body>
+</html>
