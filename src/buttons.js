@@ -1,4 +1,5 @@
 import task from "./tasks";
+import project from "./projects";
 
 function newTaskButton() 
 {
@@ -50,4 +51,52 @@ function saveTaskButton(project)
 
 }
 
-export {newTaskButton, closeTaskButton, saveTaskButton};
+
+function newProjectButton() 
+{
+    const addProject = document.getElementById("add-project");
+    const projectDialog = document.getElementById("project-dialog");
+
+    addProject.addEventListener("click", () => 
+    {
+        projectDialog.showModal();
+
+    });
+    
+}
+
+function closeProjectButton() 
+{
+    const closeProject = document.getElementById("project-cancel-button");
+    const projectDialog = document.getElementById("project-dialog");
+
+    closeProject.addEventListener("click", (e) =>
+    {
+        e.preventDefault();
+        projectDialog.close();
+    })
+
+}
+
+function saveProjectkButton(projectList) 
+{
+    const saveProject = document.getElementById("project-save-button");
+    const projectDialog = document.getElementById("project-dialog");
+
+    saveProject.addEventListener("click", (e) =>
+    {
+        e.preventDefault();
+
+        const title = document.querySelector('.project-title').value;
+        const description = document.querySelector('.project-description').value;
+
+         let project1 = new project([], title, description);
+
+         projectList.push(project1);
+        
+        projectDialog.close();
+    })
+
+}
+
+export {newTaskButton, closeTaskButton, saveTaskButton, newProjectButton, closeProjectButton, saveProjectkButton};

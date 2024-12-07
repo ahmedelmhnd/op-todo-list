@@ -2,12 +2,15 @@ import "./styles.css";
 import project from "./projects";
 import task from "./tasks";
 import {fillProject} from "./dom";
-import { closeTaskButton, newTaskButton, saveTaskButton } from "./buttons";
+import { closeProjectButton, closeTaskButton, newProjectButton, newTaskButton, saveProjectkButton, saveTaskButton } from "./buttons";
 
 newTaskButton();
 closeTaskButton();
+newProjectButton();
+closeProjectButton();
 
-
+let list = [];
+saveProjectkButton(list);
 
 let project1 = new project();
 let project2 = new project();

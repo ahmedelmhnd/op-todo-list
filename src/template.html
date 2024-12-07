@@ -33,10 +33,25 @@
         </form>
     </dialog>
 
+    <dialog id="project-dialog">
+        <form>
+            <label>
+                Title:
+                <input  class="project-title" type="text" required>
+            </label>
+            <label>
+                Description:
+                <input  class="project-description" type="text" required>
+            </label>
+            <div><button id="project-cancel-button">Cancel</button></div>
+            <div><button id="project-save-button" value="default">Save</button></div>
+        </form>
+    </dialog>
+
 
     <div class = "headbar">
-    <button id="add-task"></button>
-    
+    <button id="add-task">Add Task</button>
+    <button id="add-project">Add Project</button>
     </div>
 
     <div class="sidebar">
