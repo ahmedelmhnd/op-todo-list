@@ -6,6 +6,7 @@ class task {
         this.desc = desc;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.check = false;
     }
 
     get title() 

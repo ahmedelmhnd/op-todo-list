@@ -1,3 +1,4 @@
+import { tr } from "date-fns/locale";
 import project from "./projects"
 
 function renderCard(task) 
@@ -9,21 +10,39 @@ function renderCard(task)
 
     const title = document.createElement("h1");
     title.textContent = task.title;
+    title.classList = "card-title";
 
     const desc = document.createElement("p");
     desc.textContent = task.desc;
+    desc.classList = "card-desc";
 
     const dueDate = document.createElement("h2");
     dueDate.textContent = task.dueDate;
+    dueDate.classList = "card-dueDate";
 
     const priority = document.createElement("h2");
     priority.textContent = task.priority;
+    priority.classList = "card-priority";
+
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    check.classList = "card-check"
+    if (task.check == true) 
+    {
+        check.checked = true;    
+    }
 
     container.appendChild(card);
     card.appendChild(title);
     card.appendChild(desc);
     card.appendChild(dueDate);
     card.appendChild(priority);
+    card.appendChild(check);
+
+    check.addEventListener("click", () =>
+    {
+        task.check = !task.check;
+    });
 }
 
 function refresh() 
