@@ -227,6 +227,7 @@ dialog
     height: 15px;
     width: 15px;
     border-radius: 50%;
+    border: 3px solid;
     background-color: rgb(0, 0, 0);
 }
 
@@ -276,7 +277,7 @@ dialog
     height: 100px;
 }
 
-.title
+.big-title
 {
     font-weight: 200;
 }

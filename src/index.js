@@ -1,8 +1,8 @@
 import "./styles.css";
-import project, { addProject } from "./projects";
-import task from "./tasks";
-import { closeProjectButton, closeTaskButton, newProjectButton, newTaskButton, saveProjectButton, saveTaskButton } from "./buttons";
-import { fillProject } from "./dom";
+import project, { addProject } from "./modules/projects";
+import task from "./modules/tasks";
+import { closeProjectButton, closeTaskButton, newProjectButton, newTaskButton, saveProjectButton, saveTaskButton } from "./modules/buttons";
+import { fillProject } from "./modules/dom";
 
 let list = [];
 
