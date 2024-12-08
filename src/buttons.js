@@ -67,8 +67,6 @@ function saveTaskButton(project, projectList)
             projectList[selectedOption.id].addTask(task1);
         }
         
-
-
         fillProject(project.tasks);
 
         taskDialog.close();

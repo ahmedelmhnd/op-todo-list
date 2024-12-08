@@ -20,9 +20,9 @@ function renderCard(task)
     dueDate.textContent = task.dueDate;
     dueDate.classList = "card-dueDate";
 
-    const priority = document.createElement("h2");
-    priority.textContent = task.priority;
-    priority.classList = "card-priority";
+    const priority = document.createElement("div");
+    setupPriority(priority, task.priority);
+    
 
     const check = document.createElement("input");
     check.type = "checkbox";
@@ -43,6 +43,24 @@ function renderCard(task)
     {
         task.check = !task.check;
     });
+}
+
+function setupPriority(circle, priority)
+{
+    console.log(priority);
+    switch (priority) {
+        case "High":
+            circle.classList = "card-priority circle red";
+            break;
+        case "Medium":
+            circle.classList = "card-priority circle yellow";
+            break;
+        case "Low":
+            circle.classList = "card-priority circle green";
+            break;
+        default:
+            break;
+    }
 }
 
 function refresh() 
@@ -78,6 +96,7 @@ function renderProjects(projectList)
     {
         const project = document.createElement("li");
         const button = document.createElement("button");
+        button.classList = "sidebar-button";
         button.textContent = e.title;
 
 
