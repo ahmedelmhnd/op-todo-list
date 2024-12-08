@@ -1,3 +1,5 @@
+import { renderProjects } from "./dom";
+
 
 class project 
 {
@@ -6,6 +8,7 @@ class project
         this.tasks = tasks;
         this.title = title;
         this.desc = desc;
+        this.id = null;
     }
 
     get tasks() 
@@ -44,4 +47,13 @@ class project
     }
 }
 
+function addProject(projectList, project) 
+{
+    project.id = projectList.length;
+    projectList.push(project);    
+
+    renderProjects(projectList);
+}
+
 export default project;
+export {addProject};

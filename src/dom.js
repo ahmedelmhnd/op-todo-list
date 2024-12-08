@@ -1,3 +1,5 @@
+import project from "./projects"
+
 function renderCard(task) 
 {
     const container = document.querySelector(".card-container");
@@ -40,4 +42,34 @@ function fillProject(projectTasks)
     });
 }
 
-export {fillProject};
+function setupProjectButton(button, tasks) 
+{
+    button.addEventListener("click", () =>
+        {
+            fillProject(tasks);
+        })
+}
+
+function renderProjects(projectList) 
+{
+    const sidebar = document.querySelector(".projects > ul ")
+    sidebar.innerHTML = "";
+
+    projectList.forEach(e => 
+    {
+        const project = document.createElement("li");
+        const button = document.createElement("button");
+        button.textContent = e.title;
+
+
+        project.appendChild(button);
+
+        sidebar.appendChild(project);
+
+        setupProjectButton(button, e.tasks);
+        
+
+    });
+    
+}
+export {fillProject, renderProjects};

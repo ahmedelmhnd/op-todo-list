@@ -1,13 +1,28 @@
 import task from "./tasks";
-import project from "./projects";
+import project, {addProject} from "./projects";
+import { fillProject, renderProjects } from "./dom";
 
-function newTaskButton() 
+function newTaskButton(projectList) 
 {
     const addTask = document.getElementById("add-task");
     const taskDialog = document.getElementById("task-dialog");
+    const select = document.querySelector(".choose-project");
+
+    
 
     addTask.addEventListener("click", () => 
     {
+        select.innerHTML = "";
+        projectList.forEach(p => 
+        {
+            const option = document.createElement("option");
+            option.textContent = p.title;
+            option.id = p.id;
+            select.appendChild(option);    
+        });
+
+        
+
         taskDialog.showModal();
 
     });
@@ -27,7 +42,7 @@ function closeTaskButton()
 
 }
 
-function saveTaskButton(project) 
+function saveTaskButton(project, projectList) 
 {
     const saveTask = document.getElementById("save-button");
     const taskDialog = document.getElementById("task-dialog");
@@ -40,11 +55,21 @@ function saveTaskButton(project)
         const description = document.querySelector('.description').value;
         const dueDate = document.querySelector('.due-date').value;
         const priority = document.querySelector('.priority').value;
+        const chosenProject = document.querySelector(".choose-project");
+        const selectedOption = chosenProject.options[chosenProject.selectedIndex];
 
-         let task1 = new task(title, description, dueDate, priority);
+        let task1 = new task(title, description, dueDate, priority);
 
-         project.addTask(task1);
+        project.addTask(task1);
+
+        if (selectedOption.id != 0) 
+        {
+            projectList[selectedOption.id].addTask(task1);
+        }
         
+
+
+        fillProject(project.tasks);
 
         taskDialog.close();
     })
@@ -78,7 +103,9 @@ function closeProjectButton()
 
 }
 
-function saveProjectkButton(projectList) 
+
+
+function saveProjectButton(projectList) 
 {
     const saveProject = document.getElementById("project-save-button");
     const projectDialog = document.getElementById("project-dialog");
@@ -90,13 +117,13 @@ function saveProjectkButton(projectList)
         const title = document.querySelector('.project-title').value;
         const description = document.querySelector('.project-description').value;
 
-         let project1 = new project([], title, description);
+        let project1 = new project([], title, description );
 
-         projectList.push(project1);
-        
+        addProject(projectList, project1);
+
         projectDialog.close();
     })
 
 }
 
-export {newTaskButton, closeTaskButton, saveTaskButton, newProjectButton, closeProjectButton, saveProjectkButton};
+export {newTaskButton, closeTaskButton, saveTaskButton, newProjectButton, closeProjectButton, saveProjectButton};
